@@ -46,15 +46,17 @@ def count_neighbour(x, y):
 
 def update_board():
     global board, nR, nC
+    new_board = board.copy()
     for i in range(nR):
         for j in range(nC):
             neighbour = count_neighbour(i,j)
             if board[i,j]:
-                if neighbour < 2 or neighbour > 3:
-                    board[i,j] = 0
+                if neighbour<2 or neighbour>3:
+                    new_board[i,j] = 0
             else:
                 if neighbour == 3:
-                    board[i,j] = 1
+                    new_board[i,j] = 1
+    board = new_board
 
 
 
